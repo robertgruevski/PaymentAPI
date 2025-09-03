@@ -24,6 +24,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseAuthorization();
 
+app.UseCors(policy =>
+    policy.WithOrigins("http://localhost:4200")
+          .AllowAnyMethod()
+          .AllowAnyHeader());
+
 app.MapControllers();
 
 app.Run();
